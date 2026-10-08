@@ -1,0 +1,58 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "neuromorphic-anomaly-cascade"
+version = "0.1.0"
+description = "Continuous biophysical relaxation dynamics for streaming time series anomaly detection"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Patryck Alves" }
+]
+keywords = [
+    "neuromorphic",
+    "anomaly-detection",
+    "differential-equations",
+    "dynamical-systems",
+    "time-series",
+    "streaming",
+    "biophysical-modeling"
+]
+
+[project.urls]
+Homepage = "https://github.com/patryckalves/neuromorphic-anomaly-cascade"
+Repository = "https://github.com/patryckalves/neuromorphic-anomaly-cascade"
+Issues = "https://github.com/patryckalves/neuromorphic-anomaly-cascade/issues"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+]
+
+[project.optional-dependencies]
+benchmark = [
+    "scipy>=1.10.0",
+]
+dev = [
+    "pytest>=7.0.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/neuromorphic_cascade"]
+
+[tool.pytest.ini_options]
+addopts = "-p no:nengo"
+testpaths = ["tests"]
+pythonpath = ["src"]
